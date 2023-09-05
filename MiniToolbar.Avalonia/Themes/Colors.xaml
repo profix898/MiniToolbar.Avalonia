@@ -1,0 +1,27 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.ThemeDictionaries>
+        <!-- Default / Light -->
+        <ResourceDictionary x:Key="Default">
+            <!-- Toolbar -->
+            <SolidColorBrush x:Key="ToolbarBorderColor" Color="#61656A" />
+            <SolidColorBrush x:Key="ToolbarBackgroundColor" Color="#EFEFEF" />
+            <SolidColorBrush x:Key="ToolbarButtonColor" Color="#000000" />
+            <SolidColorBrush x:Key="ToolbarSeparatorColor" Color="#A1A5AA" />
+            <SolidColorBrush x:Key="ToolbarComboBoxBorderColor" Color="#ADB2B6" />
+            <SolidColorBrush x:Key="ToolbarComboBoxItemBorderColor" Color="#A1A5AA" />
+        </ResourceDictionary>
+
+        <!-- Dark -->
+        <ResourceDictionary x:Key="Dark">
+            <!-- Toolbar -->
+            <SolidColorBrush x:Key="ToolbarBorderColor" Color="#61656A" />
+            <SolidColorBrush x:Key="ToolbarBackgroundColor" Color="#EFEFEF" />
+            <SolidColorBrush x:Key="ToolbarButtonColor" Color="#000000" />
+            <SolidColorBrush x:Key="ToolbarSeparatorColor" Color="#A1A5AA" />
+            <SolidColorBrush x:Key="ToolbarComboBoxBorderColor" Color="#ADB2B6" />
+            <SolidColorBrush x:Key="ToolbarComboBoxItemBorderColor" Color="#A1A5AA" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>

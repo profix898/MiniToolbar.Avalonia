@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34004.107
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoApp", "DemoApp\DemoApp.csproj", "{F6FD96E4-384E-4413-8792-855E3C433E39}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniToolbar.Avalonia", "MiniToolbar.Avalonia\MiniToolbar.Avalonia.csproj", "{192A39CC-EF85-45D4-8DFA-9C44D78FBEAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6FD96E4-384E-4413-8792-855E3C433E39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6FD96E4-384E-4413-8792-855E3C433E39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6FD96E4-384E-4413-8792-855E3C433E39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6FD96E4-384E-4413-8792-855E3C433E39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{192A39CC-EF85-45D4-8DFA-9C44D78FBEAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{192A39CC-EF85-45D4-8DFA-9C44D78FBEAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{192A39CC-EF85-45D4-8DFA-9C44D78FBEAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{192A39CC-EF85-45D4-8DFA-9C44D78FBEAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A542B1D4-4526-44A5-8618-589E7A1B649F}
+	EndGlobalSection
+EndGlobal

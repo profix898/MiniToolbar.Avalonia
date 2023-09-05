@@ -1,0 +1,86 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:toolbar="clr-namespace:MiniToolbar.Avalonia;assembly=MiniToolbar.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
+        x:Class="DemoApp.MainWindow"
+        Title="DemoApp">
+    <StackPanel Orientation="Vertical">
+        <DockPanel>
+            <!-- Menu -->
+            <Menu DockPanel.Dock="Top" Height="30">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_New..." />
+                    <MenuItem Header="_Open..." />
+                    <Separator />
+                    <MenuItem Header="_Exit" />
+                </MenuItem>
+                <MenuItem Header="_Edit">
+                    <MenuItem Header="Copy" />
+                    <MenuItem Header="Paste" />
+                </MenuItem>
+            </Menu>
+
+            <!-- Toolbar (Vertical) -->
+            <!--<toolbar:Toolbar DockPanel.Dock="Left" Orientation="Vertical">
+                <toolbar:ToolbarButton Text="Button A" Icon="/Assets/Toolbar/IconA.png" Click="ButtonAClick" />
+                <toolbar:ToolbarButton Icon="/Assets/Toolbar/IconA.png" Click="ButtonAClick" />
+                <toolbar:ToolbarSeparator />
+                <toolbar:ToolbarButton Text="Button C" Click="ButtonAClick" />
+            </toolbar:Toolbar>
+            <TextBlock Height="120">Welcome to Avalonia!</TextBlock>-->
+
+            <!-- Toolbar -->
+            <toolbar:Toolbar DockPanel.Dock="Top">
+                <toolbar:ToolbarButton Text="Button A" Icon="/Assets/Toolbar/IconA.png" Click="ButtonAClick" />
+                <toolbar:ToolbarButton Icon="/Assets/Toolbar/IconA.png" Click="ButtonAClick" />
+                <toolbar:ToolbarSeparator />
+                <toolbar:ToolbarButton Text="Button C" Click="ButtonAClick" />
+                <toolbar:ToolbarSeparator />
+                <toolbar:ToolbarLabel>Label</toolbar:ToolbarLabel>
+                <toolbar:ToolbarComboBox SelectedIndex="0">
+                    <ComboBoxItem>Avalonia</ComboBoxItem>
+                    <ComboBoxItem>.NET MAUI</ComboBoxItem>
+                    <ComboBoxItem>WinForms</ComboBoxItem>
+                </toolbar:ToolbarComboBox>
+                <toolbar:ToolbarSeparator />
+            </toolbar:Toolbar>
+            <TextBlock Height="120">Welcome to Avalonia!</TextBlock>
+        </DockPanel>
+        <DockPanel>
+            <!-- Menu -->
+            <Menu DockPanel.Dock="Top" Height="30">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_New..." />
+                    <MenuItem Header="_Open..." />
+                    <Separator />
+                    <MenuItem Header="_Exit" />
+                </MenuItem>
+                <MenuItem Header="_Edit">
+                    <MenuItem Header="Copy" />
+                    <MenuItem Header="Paste" />
+                </MenuItem>
+            </Menu>
+
+            <!-- Toolbar (Compact) -->
+            <toolbar:Toolbar DisplayMode="Compact" DockPanel.Dock="Top">
+                <!--<toolbar:ToolbarButton Text="Button A" Icon="/Assets/Toolbar/IconA.png" Click="ButtonAClick" />-->
+                <toolbar:ToolbarButton Icon="/Assets/Toolbar/IconA.png" Click="ButtonAClick" />
+                <toolbar:ToolbarButton Icon="/Assets/Toolbar/IconA.png" Click="ButtonAClick" />
+                <toolbar:ToolbarSeparator />
+                <toolbar:ToolbarButton Text="Button C" Click="ButtonAClick" />
+                <toolbar:ToolbarSeparator />
+                <toolbar:ToolbarLabel>Label</toolbar:ToolbarLabel>
+                <toolbar:ToolbarComboBox SelectedIndex="0">
+                    <ComboBoxItem>Avalonia</ComboBoxItem>
+                    <ComboBoxItem>.NET MAUI</ComboBoxItem>
+                    <ComboBoxItem>WinForms</ComboBoxItem>
+                </toolbar:ToolbarComboBox>
+                <toolbar:ToolbarSeparator />
+            </toolbar:Toolbar>
+            <TextBlock Height="120">Welcome to Avalonia!</TextBlock>
+        </DockPanel>
+    </StackPanel>
+
+</Window>
