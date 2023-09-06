@@ -62,18 +62,6 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
-    <Style Selector="avalonia|Toolbar.Horizontal Button.ToolbarButton:nth-child(1)">
-        <Setter Property="Margin" Value="6,0,0,0" />
-    </Style>
-    <Style Selector="avalonia|Toolbar.Horizontal Button.ToolbarButton:nth-last-child(1)">
-        <Setter Property="Margin" Value="0,0,6,0" />
-    </Style>
-    <Style Selector="avalonia|Toolbar.Vertical Button.ToolbarButton:nth-child(1)">
-        <Setter Property="Margin" Value="0,6,0,0" />
-    </Style>
-    <Style Selector="avalonia|Toolbar.Vertical Button.ToolbarButton:nth-last-child(1)">
-        <Setter Property="Margin" Value="0,0,0,6" />
-    </Style>
     <Style Selector="avalonia|Toolbar.CompactStyle Button.ToolbarButton">
         <Setter Property="Height" Value="{StaticResource ToolbarButtonCompactHeight}" />
     </Style>
@@ -132,6 +120,7 @@
   
     <!-- ToolbarLabel -->
     <Style Selector="Label.ToolbarLabel">
+        <Setter Property="Foreground" Value="{DynamicResource ToolbarLabelColor}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
@@ -140,9 +129,9 @@
     <Style Selector="ComboBox.ToolbarComboBox">
         <Setter Property="MinWidth" Value="120" />
         <Setter Property="Height" Value="{StaticResource ToolbarComboBoxNormalHeight}" />
-        <Setter Property="Margin" Value="7,0,5,0" />
+        <Setter Property="Margin" Value="5,0,5,0" />
         <Setter Property="Padding" Value="10,2,0,2" />
-        <Setter Property="CornerRadius" Value="2" />
+        <Setter Property="CornerRadius" Value="3" />
         <Setter Property="BorderBrush" Value="{DynamicResource ToolbarComboBoxBorderColor}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -153,5 +142,29 @@
     <Style Selector="ComboBox.ToolbarComboBox ComboBoxItem">
         <Setter Property="BorderBrush" Value="{DynamicResource ToolbarComboBoxItemBorderColor}" />
         <Setter Property="BorderThickness" Value="0" />
+    </Style>
+
+    <!-- ToolbarCheckBox -->
+    <Style Selector="CheckBox.ToolbarCheckBox">
+        <Setter Property="Margin" Value="5,0,5,0" />
+        <Setter Property="Padding" Value="8,0,4,0" />
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ToolbarComboBoxBorderColor}" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <!-- Toolbar Item Margins -->
+    <Style Selector="avalonia|Toolbar.Horizontal > Border > Panel > StackPanel > :is(Control):nth-child(1)">
+        <Setter Property="Margin" Value="6,0,0,0" />
+    </Style>
+    <Style Selector="avalonia|Toolbar.Horizontal > Border > Panel > StackPanel > :is(Control):nth-last-child(1)">
+        <Setter Property="Margin" Value="0,0,6,0" />
+    </Style>
+    <Style Selector="avalonia|Toolbar.Vertical > Border > Panel > StackPanel > :is(Control):nth-child(1)">
+        <Setter Property="Margin" Value="0,6,0,0" />
+    </Style>
+    <Style Selector="avalonia|Toolbar.Vertical > Border > Panel > StackPanel > :is(Control):nth-last-child(1)">
+        <Setter Property="Margin" Value="0,0,0,6" />
     </Style>
 </Styles>

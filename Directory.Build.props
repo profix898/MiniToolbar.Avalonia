@@ -13,7 +13,7 @@
     <Copyright>Copyright (c) Thilo Viereck 2023</Copyright>
     <DefaultLanguage>en-US</DefaultLanguage>
     <BuildNumber>$([System.DateTime]::UtcNow.Subtract($([System.DateTime]::Parse("2023/07/01"))).TotalDays.ToString("0"))</BuildNumber>
-    <Version>0.5.$(BuildNumber)</Version>
+    <Version>0.6.$(BuildNumber)</Version>
     <FileVersion>$(Version)</FileVersion>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <PackageIcon>logo.png</PackageIcon>
@@ -28,12 +28,13 @@
   <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <!--<IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>-->
+    <!-- <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat> -->
     <PackageOutputPath>$(SolutionDir)\Build\$(Configuration)\Packages\</PackageOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <None Include="$(SolutionDir)\logo.png" Pack="true" Visible="false" PackagePath="" />
     <None Include="$(SolutionDir)\Readme.md" Pack="true" Visible="false" PackagePath="" />
+    <None Include="$(SolutionDir)\screenshot.png" Pack="true" Visible="false" PackagePath="" />
   </ItemGroup>
 </Project>

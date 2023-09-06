@@ -6,7 +6,7 @@
         xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="450"
         Width="900" Height="450"
-        x:Class="DemoApp.MainWindow"
+        x:Class="DemoApp.TestWindow"
         Title="MiniToolbar.Avalonia">
 
     <Window.Styles>
@@ -37,10 +37,10 @@
 
                 <!-- Toolbar (Horizontal) -->
                 <toolbar:Toolbar DockPanel.Dock="Top">
-                    <toolbar:ToolbarButton Text="Folder" Icon="{materialIcons:MaterialIconExt Kind=FolderOutline}" />
-                    <toolbar:ToolbarButton Text="Deploy" Icon="{materialIcons:MaterialIconExt Kind=Cube}" />
+                    <toolbar:ToolbarButton Text="Button A" Icon="{materialIcons:MaterialIconExt Kind=FolderOutline}" Click="ButtonAClick" />
+                    <toolbar:ToolbarButton Icon="{materialIcons:MaterialIconExt Kind=Settings}" Click="ButtonAClick" />
                     <toolbar:ToolbarSeparator />
-                    <toolbar:ToolbarButton Text="Settings" Icon="{materialIcons:MaterialIconExt Kind=Settings}" />
+                    <toolbar:ToolbarButton Text="Button C" Click="ButtonAClick" />
                     <toolbar:ToolbarSeparator />
                     <toolbar:ToolbarLabel>Label</toolbar:ToolbarLabel>
                     <toolbar:ToolbarComboBox SelectedIndex="0">
@@ -75,10 +75,11 @@
 
                 <!-- Toolbar (Horizontal + Compact) -->
                 <toolbar:Toolbar DisplayMode="Compact" DockPanel.Dock="Top">
-                    <toolbar:ToolbarButton Icon="{materialIcons:MaterialIconExt Kind=FolderOutline}" />
-                    <toolbar:ToolbarButton Icon="{materialIcons:MaterialIconExt Kind=Cube}" />
+                    <!--<toolbar:ToolbarButton Text="Button A" Icon="{materialIcons:MaterialIconExt Kind=FolderOutline}" Click="ButtonAClick" />-->
+                    <toolbar:ToolbarButton Icon="{materialIcons:MaterialIconExt Kind=FolderOutline}" Click="ButtonAClick" />
+                    <toolbar:ToolbarButton Icon="{materialIcons:MaterialIconExt Kind=Settings}" Click="ButtonAClick" />
                     <toolbar:ToolbarSeparator />
-                    <toolbar:ToolbarButton Icon="{materialIcons:MaterialIconExt Kind=Settings}" />
+                    <toolbar:ToolbarButton Text="Button C" Click="ButtonAClick" />
                     <toolbar:ToolbarSeparator />
                     <toolbar:ToolbarLabel>Label</toolbar:ToolbarLabel>
                     <toolbar:ToolbarComboBox SelectedIndex="0">
@@ -98,11 +99,11 @@
         <Panel Width="3" Background="DarkGray" />
       
         <!-- Toolbar (Vertical) -->
-        <toolbar:Toolbar DockPanel.Dock="Left" DisplayMode="Compact" Orientation="Vertical">
-            <toolbar:ToolbarButton Icon="{materialIcons:MaterialIconExt Kind=FolderOutline}" />
-            <toolbar:ToolbarButton Icon="{materialIcons:MaterialIconExt Kind=Cube}" />
+        <toolbar:Toolbar DockPanel.Dock="Left" Orientation="Vertical">
+            <toolbar:ToolbarButton Text="Button A" Icon="{materialIcons:MaterialIconExt Kind=FolderOutline}" Click="ButtonAClick" />
+            <toolbar:ToolbarButton Icon="{materialIcons:MaterialIconExt Kind=Settings}" Click="ButtonAClick" />
             <toolbar:ToolbarSeparator />
-            <toolbar:ToolbarButton Icon="{materialIcons:MaterialIconExt Kind=Settings}" />
+            <toolbar:ToolbarButton Text="Button C" Click="ButtonAClick" />
         </toolbar:Toolbar>
         <TextBlock Height="120" Padding="8,5" VerticalAlignment="Top">Welcome to Avalonia!</TextBlock>
     </StackPanel>

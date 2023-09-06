@@ -1,6 +1,6 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:themes="clr-namespace:MiniToolbar.Avalonia.Themes;assembly=MiniToolbar.Avalonia"
+             xmlns:toolbar="clr-namespace:MiniToolbar.Avalonia.Themes;assembly=MiniToolbar.Avalonia"
              xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              x:Class="DemoApp.App"
              RequestedThemeVariant="Default">
@@ -8,6 +8,6 @@
     <Application.Styles>
         <FluentTheme />
         <materialIcons:MaterialIconStyles />
-        <themes:MiniToolbarStyles />
+        <toolbar:MiniToolbarStyles />
     </Application.Styles>
 </Application>

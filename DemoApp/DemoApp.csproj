@@ -20,4 +20,13 @@
   <ItemGroup>
     <ProjectReference Include="..\MiniToolbar.Avalonia\MiniToolbar.Avalonia.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="TestWindow.axaml.cs">
+      <DependentUpon>TestWindow.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="MainWindow.axaml.cs">
+      <DependentUpon>MainWindow.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

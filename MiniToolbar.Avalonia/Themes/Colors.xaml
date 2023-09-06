@@ -9,6 +9,7 @@
             <SolidColorBrush x:Key="ToolbarBackgroundColor" Color="#EFEFEF" />
             <SolidColorBrush x:Key="ToolbarButtonColor" Color="#000000" />
             <SolidColorBrush x:Key="ToolbarSeparatorColor" Color="#A1A5AA" />
+            <SolidColorBrush x:Key="ToolbarLabelColor" Color="#424242" />
             <SolidColorBrush x:Key="ToolbarComboBoxBorderColor" Color="#ADB2B6" />
             <SolidColorBrush x:Key="ToolbarComboBoxItemBorderColor" Color="#A1A5AA" />
         </ResourceDictionary>
@@ -20,6 +21,7 @@
             <SolidColorBrush x:Key="ToolbarBackgroundColor" Color="#EFEFEF" />
             <SolidColorBrush x:Key="ToolbarButtonColor" Color="#000000" />
             <SolidColorBrush x:Key="ToolbarSeparatorColor" Color="#A1A5AA" />
+            <SolidColorBrush x:Key="ToolbarLabelColor" Color="#424242" />
             <SolidColorBrush x:Key="ToolbarComboBoxBorderColor" Color="#ADB2B6" />
             <SolidColorBrush x:Key="ToolbarComboBoxItemBorderColor" Color="#A1A5AA" />
         </ResourceDictionary>
