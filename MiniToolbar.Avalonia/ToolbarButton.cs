@@ -1,6 +1,7 @@
 ﻿using System;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Templates;
 using Avalonia.Layout;
 using Avalonia.Media;
@@ -10,7 +11,7 @@ namespace MiniToolbar.Avalonia;
 
 public class ToolbarButton : Button, IToolbarItem
 {
-    public static readonly StyledProperty<IImage?> IconProperty = AvaloniaProperty.Register<ToolbarButton, IImage?>(nameof(Icon));
+    public static readonly StyledProperty<object?> IconProperty = AvaloniaProperty.Register<ToolbarButton, object?>(nameof(Icon));
 
     public static readonly StyledProperty<string?> TextProperty = AvaloniaProperty.Register<ToolbarButton, string?>(nameof(Text));
 
@@ -33,7 +34,7 @@ public class ToolbarButton : Button, IToolbarItem
         set { throw new NotSupportedException($"{nameof(ToolbarButton)} does not support custom {nameof(Content)} and {nameof(ContentTemplate)}. Use .{nameof(Text)} and .{nameof(Icon)} properties."); }
     } 
     
-    public IImage? Icon
+    public object? Icon
     {
         get { return GetValue(IconProperty); }
         set { SetValue(IconProperty, value); }
@@ -57,13 +58,21 @@ public class ToolbarButton : Button, IToolbarItem
 
         if (change.Property == IconProperty || change.Property == TextProperty)
         {
+            Control iconControl = Icon switch
+            {
+                TemplatedControl control => control,
+                IImage iimage => new Image { Source = iimage, IsVisible = Icon != null },
+                null => new Image { Source = null, IsVisible = false }, // Placeholder
+                _ => throw new NotSupportedException($"Unsupported icon type ({Icon.GetType()}).")
+            };
+
             base.Content = new StackPanel
             {
                 Orientation = Orientation.Vertical,
                 Children =
                 {
-                    new Image { Source = Icon, IsVisible = (Icon != null) },
-                    new TextBlock { Text = Text, IsVisible = (!String.IsNullOrEmpty(Text)) }
+                    iconControl,
+                    new TextBlock { Text = Text, IsVisible = !String.IsNullOrEmpty(Text) }
                 }
             };
 

@@ -57,7 +57,6 @@
     <Style Selector="Button.ToolbarButton">
         <Setter Property="Height" Value="{StaticResource ToolbarButtonNormalHeight}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Opacity" Value="0.9" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="HorizontalAlignment" Value="Center" />
@@ -88,6 +87,7 @@
     <Style Selector="Button.ToolbarButton > StackPanel > Image">
         <Setter Property="Width" Value="{StaticResource ToolbarButtonImageSize}" />
         <Setter Property="Height" Value="{StaticResource ToolbarButtonImageSize}" />
+        <Setter Property="Opacity" Value="0.8" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
@@ -139,7 +139,6 @@
     <!-- ToolbarComboBox -->
     <Style Selector="ComboBox.ToolbarComboBox">
         <Setter Property="MinWidth" Value="120" />
-        <!--<Setter Property="Width" Value="120" />-->
         <Setter Property="Height" Value="{StaticResource ToolbarComboBoxNormalHeight}" />
         <Setter Property="Margin" Value="7,0,5,0" />
         <Setter Property="Padding" Value="10,2,0,2" />
