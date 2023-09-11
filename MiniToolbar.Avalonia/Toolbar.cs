@@ -29,10 +29,10 @@ public class Toolbar : TemplatedControl
     public static readonly StyledProperty<DisplayModeEnum> DisplayModeProperty = AvaloniaProperty.Register<Toolbar, DisplayModeEnum>(nameof(DisplayMode), DisplayModeEnum.Normal);
 
     public static readonly DirectProperty<Toolbar, IEnumerable<IToolbarItem>> ToolbarItemsSourceProperty =
-        AvaloniaProperty.RegisterDirect<Toolbar, IEnumerable<IToolbarItem>>(nameof(ToolbarItemsSource), s => s.ToolbarItems, (s, items) =>
+        AvaloniaProperty.RegisterDirect<Toolbar, IEnumerable<IToolbarItem>>(nameof(ItemsSource), s => s.Items, (s, items) =>
         {
-            s.ToolbarItems.Clear();
-            s.ToolbarItems.AddRange(items);
+            s.Items.Clear();
+            s.Items.AddRange(items);
         });
 
     public Orientation Orientation
@@ -48,9 +48,9 @@ public class Toolbar : TemplatedControl
     }
 
     [Content]
-    public List<IToolbarItem> ToolbarItems { get; } = new List<IToolbarItem>();
+    public List<IToolbarItem> Items { get; } = new List<IToolbarItem>();
 
-    public IEnumerable<IToolbarItem> ToolbarItemsSource
+    public IEnumerable<IToolbarItem> ItemsSource
     {
         get { return GetValue(ToolbarItemsSourceProperty); }
         set { SetValue(ToolbarItemsSourceProperty, value); }
@@ -64,7 +64,7 @@ public class Toolbar : TemplatedControl
         if (toolbarPanel != null)
         {
             toolbarPanel.Children.Clear();
-            toolbarPanel.Children.AddRange(ToolbarItems.OfType<Control>());
+            toolbarPanel.Children.AddRange(Items.OfType<Control>());
 
             Classes.Set("Horizontal", Orientation == Orientation.Horizontal);
             Classes.Set("Vertical", Orientation == Orientation.Vertical);
@@ -83,7 +83,7 @@ public class Toolbar : TemplatedControl
         else if (change.Property == ToolbarItemsSourceProperty && toolbarPanel != null)
         {
             toolbarPanel.Children.Clear();
-            toolbarPanel.Children.AddRange(ToolbarItems.OfType<Control>());
+            toolbarPanel.Children.AddRange(Items.OfType<Control>());
         }
     }
 }
