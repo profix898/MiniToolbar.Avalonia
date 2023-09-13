@@ -7,8 +7,4 @@
     <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
   </ItemGroup>
-  <ItemGroup>
-    <AvaloniaResource Include="**/*.xaml" />
-    <AvaloniaResource Include="**/*.axaml" />
-  </ItemGroup>
 </Project>

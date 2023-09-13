@@ -1,41 +1,42 @@
-﻿<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:avalonia="clr-namespace:MiniToolbar.Avalonia"
-        x:Class="MiniToolbar.Avalonia.Themes.MiniToolbarStyles">
+﻿<themes:MiniToolbarStyles xmlns="https://github.com/avaloniaui"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                          xmlns:avalonia="clr-namespace:MiniToolbar.Avalonia"
+                          xmlns:themes="clr-namespace:MiniToolbar.Avalonia.Themes"
+                          x:Class="MiniToolbar.Avalonia.Themes.MiniToolbarStyles">
 
-    <Styles.Resources>
+    <themes:MiniToolbarStyles.Resources>
         <ResourceDictionary>
             <!-- Toolbar -->
             <x:Double x:Key="ToolbarCompactHeight">40</x:Double>
             <x:Double x:Key="ToolbarNormalHeight">65</x:Double>
-          
+
             <!-- ToolbarButton -->
             <x:Double x:Key="ToolbarButtonWidth">32</x:Double>
             <x:Double x:Key="ToolbarButtonImageSize">24</x:Double>
             <x:Double x:Key="ToolbarButtonCompactHeight">32</x:Double>
             <x:Double x:Key="ToolbarButtonNormalHeight">48</x:Double>
-          
+
             <!-- ToolbarSeparator -->
             <x:Double x:Key="ToolbarSeparatorWidth">1</x:Double>
             <x:Double x:Key="ToolbarSeparatorCompactHeight">24</x:Double>
             <x:Double x:Key="ToolbarSeparatorNormalHeight">42</x:Double>
-          
+
             <!-- ToolbarComboBox -->
             <x:Double x:Key="ToolbarComboBoxCompactHeight">28</x:Double>
             <x:Double x:Key="ToolbarComboBoxNormalHeight">48</x:Double>
 
             <ResourceDictionary.MergedDictionaries>
-                <MergeResourceInclude Source="avares://MiniToolbar.Avalonia/Themes/Colors.xaml" />
-                <MergeResourceInclude Source="avares://MiniToolbar.Avalonia/Themes/Controls/Toolbar.xaml" />
+                <MergeResourceInclude Source="/Themes/Colors.axaml" />
+                <MergeResourceInclude Source="/Themes/Controls/Toolbar.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-    </Styles.Resources>
+    </themes:MiniToolbarStyles.Resources>
 
     <!-- Menu (use same background for menu and toolbar by default) -->
     <Style Selector="Menu">
         <Setter Property="Background" Value="{DynamicResource ToolbarBackgroundColor}" />
     </Style>
-  
+
     <!-- Toolbar -->
     <Style Selector="avalonia|Toolbar.Horizontal > Border">
         <Setter Property="BorderThickness" Value="0,1,0,1" />
@@ -52,7 +53,7 @@
     <Style Selector="avalonia|Toolbar.Vertical > Border > Panel > StackPanel">
         <Setter Property="Margin" Value="4,0" />
     </Style>
-  
+
     <!-- ToolbarButton -->
     <Style Selector="Button.ToolbarButton">
         <Setter Property="Height" Value="{StaticResource ToolbarButtonNormalHeight}" />
@@ -80,9 +81,9 @@
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
     <Style Selector="Button.ToolbarButton > StackPanel > TextBlock">
-      <Setter Property="Foreground" Value="{DynamicResource ToolbarButtonColor}" />
-      <Setter Property="Padding" Value="4,0" />
-      <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{DynamicResource ToolbarButtonColor}" />
+        <Setter Property="Padding" Value="4,0" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
     </Style>
     <Style Selector="avalonia|Toolbar.CompactStyle Button.ToolbarButton > StackPanel > TextBlock">
         <Setter Property="IsVisible" Value="False" />
@@ -93,7 +94,7 @@
     <Style Selector="avalonia|Toolbar.CompactStyle Button.ToolbarButton.NoIcon > StackPanel > Image">
         <Setter Property="IsVisible" Value="False" />
     </Style>
-  
+
     <!-- ToolbarSeparator -->
     <Style Selector="avalonia|Toolbar.Horizontal Panel.ToolbarSeparator">
         <Setter Property="Width" Value="{StaticResource ToolbarSeparatorWidth}" />
@@ -117,14 +118,14 @@
     <Style Selector="avalonia|Toolbar.Vertical.CompactStyle Panel.ToolbarSeparator">
         <Setter Property="Width" Value="{StaticResource ToolbarSeparatorCompactHeight}" />
     </Style>
-  
+
     <!-- ToolbarLabel -->
     <Style Selector="Label.ToolbarLabel">
         <Setter Property="Foreground" Value="{DynamicResource ToolbarLabelColor}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
-  
+
     <!-- ToolbarComboBox -->
     <Style Selector="ComboBox.ToolbarComboBox">
         <Setter Property="MinWidth" Value="120" />
@@ -167,4 +168,4 @@
     <Style Selector="avalonia|Toolbar.Vertical > Border > Panel > StackPanel > :is(Control):nth-last-child(1)">
         <Setter Property="Margin" Value="0,0,0,6" />
     </Style>
-</Styles>
+</themes:MiniToolbarStyles>
