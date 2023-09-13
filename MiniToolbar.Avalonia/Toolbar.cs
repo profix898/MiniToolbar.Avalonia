@@ -1,7 +1,10 @@
-﻿using Avalonia;
+﻿using System;
+using Avalonia;
 using Avalonia.Controls.Primitives;
 using Avalonia.Metadata;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
@@ -28,12 +31,12 @@ public class Toolbar : TemplatedControl
 
     public static readonly StyledProperty<DisplayModeEnum> DisplayModeProperty = AvaloniaProperty.Register<Toolbar, DisplayModeEnum>(nameof(DisplayMode), DisplayModeEnum.Normal);
 
-    public static readonly DirectProperty<Toolbar, IEnumerable<IToolbarItem>> ToolbarItemsSourceProperty =
-        AvaloniaProperty.RegisterDirect<Toolbar, IEnumerable<IToolbarItem>>(nameof(ItemsSource), s => s.Items, (s, items) =>
-        {
-            s.Items.Clear();
-            s.Items.AddRange(items);
-        });
+    public static readonly StyledProperty<IEnumerable<IToolbarItem>?> ItemsSourceProperty = AvaloniaProperty.Register<Toolbar, IEnumerable<IToolbarItem>?>(nameof(ItemsSource));
+
+    public Toolbar()
+    {
+        Items.CollectionChanged += OnItemsCollectionChanged;
+    }
 
     public Orientation Orientation
     {
@@ -48,12 +51,12 @@ public class Toolbar : TemplatedControl
     }
 
     [Content]
-    public List<IToolbarItem> Items { get; } = new List<IToolbarItem>();
+    public ObservableCollection<IToolbarItem> Items { get; } = new ObservableCollection<IToolbarItem>();
 
-    public IEnumerable<IToolbarItem> ItemsSource
+    public IEnumerable<IToolbarItem>? ItemsSource
     {
-        get { return GetValue(ToolbarItemsSourceProperty); }
-        set { SetValue(ToolbarItemsSourceProperty, value); }
+        internal get { return GetValue(ItemsSourceProperty); }
+        set { SetValue(ItemsSourceProperty, value); }
     }
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -80,10 +83,70 @@ public class Toolbar : TemplatedControl
             Classes.Set("Vertical", Orientation == Orientation.Vertical);
         else if (change.Property == DisplayModeProperty)
             Classes.Set("CompactStyle", DisplayMode == DisplayModeEnum.Compact);
-        else if (change.Property == ToolbarItemsSourceProperty && toolbarPanel != null)
+        else if (change.Property == ItemsSourceProperty)
         {
-            toolbarPanel.Children.Clear();
-            toolbarPanel.Children.AddRange(Items.OfType<Control>());
+            if (ItemsSource is INotifyCollectionChanged notifyCollectionChanged)
+                notifyCollectionChanged.CollectionChanged += (_, _) => { UpdateItemsFromItemsSource(); };
+
+            UpdateItemsFromItemsSource();
         }
     }
+
+    #region Private
+
+    private void UpdateItemsFromItemsSource()
+    {
+        Items.Clear();
+
+        if (ItemsSource != null)
+        {
+            foreach (var item in ItemsSource)
+                Items.Add(item);
+        }
+    }
+
+    private void OnItemsCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
+    {
+        if (toolbarPanel == null)
+            return;
+
+        switch (e.Action)
+        {
+            case NotifyCollectionChangedAction.Add:
+                if (e.NewStartingIndex != -1)
+                    toolbarPanel.Children.InsertRange(e.NewStartingIndex, e.NewItems.OfType<Control>());
+                else
+                    toolbarPanel.Children.AddRange(e.NewItems.OfType<Control>());
+                break;
+            case NotifyCollectionChangedAction.Remove:
+                if (e.NewStartingIndex != -1)
+                    toolbarPanel.Children.RemoveRange(e.NewStartingIndex, e.OldItems.OfType<Control>().Count());
+                else
+                    toolbarPanel.Children.RemoveAll(e.OldItems.OfType<Control>());
+                break;
+            case NotifyCollectionChangedAction.Replace:
+                if (e.NewStartingIndex != -1)
+                {
+                    toolbarPanel.Children.RemoveRange(e.NewStartingIndex, e.OldItems.OfType<Control>().Count());
+                    toolbarPanel.Children.InsertRange(e.OldStartingIndex, e.NewItems.OfType<Control>());
+                }
+                else
+                {
+                    toolbarPanel.Children.RemoveAll(e.OldItems.OfType<Control>());
+                    toolbarPanel.Children.AddRange(e.NewItems.OfType<Control>());
+                }
+                break;
+            case NotifyCollectionChangedAction.Move:
+                OnItemsCollectionChanged(sender, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, e.OldStartingIndex, e.OldItems));
+                OnItemsCollectionChanged(sender, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, e.NewStartingIndex, e.NewItems));
+                break;
+            case NotifyCollectionChangedAction.Reset:
+                toolbarPanel.Children.Clear();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    #endregion
 }

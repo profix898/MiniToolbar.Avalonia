@@ -74,7 +74,7 @@
                 </Menu>
 
                 <!-- Toolbar (Horizontal + Compact) -->
-                <toolbar:Toolbar DisplayMode="Compact" DockPanel.Dock="Top">
+                <toolbar:Toolbar x:Name="HorizontalCompactToolbar" DisplayMode="Compact" DockPanel.Dock="Top">
                     <!--<toolbar:ToolbarButton Text="Button A" Icon="{materialIcons:MaterialIconExt Kind=FolderOutline}" Click="ButtonAClick" />-->
                     <toolbar:ToolbarButton Icon="{materialIcons:MaterialIconExt Kind=FolderOutline}" Click="ButtonAClick" />
                     <toolbar:ToolbarButton Icon="{materialIcons:MaterialIconExt Kind=Settings}" Click="ButtonAClick" />
@@ -91,7 +91,12 @@
                     <toolbar:ToolbarCheckBox>Check</toolbar:ToolbarCheckBox>
                     <toolbar:ToolbarSeparator />
                 </toolbar:Toolbar>
-                <TextBlock Height="120" Padding="8,5">Welcome to Avalonia!</TextBlock>
+                <StackPanel>
+                    <TextBlock Height="60" Padding="8,5">Welcome to Avalonia!</TextBlock>
+                    <Button Click="AddToToolbar">Add Items</Button>
+                    <Button Click="BindToolbarItemSource">Bind Toolbar ItemsSource</Button>
+                    <Button Click="UpdateToolbarItemSource">Update Toolbar ItemsSource</Button>
+                </StackPanel>
             </DockPanel>
         </StackPanel>
       
