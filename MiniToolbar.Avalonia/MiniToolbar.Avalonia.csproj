@@ -4,7 +4,7 @@
     <IsPackable>true</IsPackable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Avalonia" Version="11.0.5" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="11.0.5" />
   </ItemGroup>
 </Project>
