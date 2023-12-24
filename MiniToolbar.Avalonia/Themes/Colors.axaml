@@ -9,7 +9,7 @@
             <SolidColorBrush x:Key="ToolbarBackgroundColor" Color="#EFEFEF" />
             <SolidColorBrush x:Key="ToolbarButtonColor" Color="#000000" />
             <SolidColorBrush x:Key="ToolbarSeparatorColor" Color="#A1A5AA" />
-            <SolidColorBrush x:Key="ToolbarLabelColor" Color="#424242" />
+            <SolidColorBrush x:Key="ToolbarTextColor" Color="#424242" />
             <SolidColorBrush x:Key="ToolbarComboBoxBorderColor" Color="#ADB2B6" />
             <SolidColorBrush x:Key="ToolbarComboBoxItemBorderColor" Color="#A1A5AA" />
         </ResourceDictionary>
@@ -17,13 +17,13 @@
         <!-- Dark -->
         <ResourceDictionary x:Key="Dark">
             <!-- Toolbar -->
-            <SolidColorBrush x:Key="ToolbarBorderColor" Color="#61656A" />
-            <SolidColorBrush x:Key="ToolbarBackgroundColor" Color="#EFEFEF" />
-            <SolidColorBrush x:Key="ToolbarButtonColor" Color="#000000" />
-            <SolidColorBrush x:Key="ToolbarSeparatorColor" Color="#A1A5AA" />
-            <SolidColorBrush x:Key="ToolbarLabelColor" Color="#424242" />
-            <SolidColorBrush x:Key="ToolbarComboBoxBorderColor" Color="#ADB2B6" />
-            <SolidColorBrush x:Key="ToolbarComboBoxItemBorderColor" Color="#A1A5AA" />
+            <SolidColorBrush x:Key="ToolbarBorderColor" Color="#000000" />
+            <SolidColorBrush x:Key="ToolbarBackgroundColor" Color="#222222" />
+            <SolidColorBrush x:Key="ToolbarButtonColor" Color="#555555" />
+            <SolidColorBrush x:Key="ToolbarSeparatorColor" Color="#555555" />
+            <SolidColorBrush x:Key="ToolbarTextColor" Color="#EFEFEF" />
+            <SolidColorBrush x:Key="ToolbarComboBoxBorderColor" Color="#000000" />
+            <SolidColorBrush x:Key="ToolbarComboBoxItemBorderColor" Color="#000000" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 </ResourceDictionary>
