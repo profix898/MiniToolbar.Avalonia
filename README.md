@@ -2,7 +2,7 @@ MiniToolbar.Avalonia
 ==========
 [![Nuget](https://img.shields.io/nuget/v/MiniToolbar.Avalonia?style=flat-square&logo=nuget&color=blue)](https://www.nuget.org/packages/MiniToolbar.Avalonia)
 
-**MiniToolbar.Avalonia** provides a minimalistic toolbar implementation for **Avalonia UI**.
+**MiniToolbar.Avalonia** provides a minimalistic toolbar implementation for **[Avalonia](https://avaloniaui.net/)**.
 
 [<img src="screenshot.png" width="800" />](screenshot.png)
 
