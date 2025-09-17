@@ -1,13 +1,18 @@
-﻿using System;
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
 
-namespace MiniToolbar.Avalonia.Themes;
-
-public sealed class MiniToolbarStyles : Styles
+namespace MiniToolbar.Avalonia.Themes
 {
-    public MiniToolbarStyles(IServiceProvider? sp = null)
+    public partial class MiniToolbarStyles : Styles
     {
-        AvaloniaXamlLoader.Load(sp, this);
+        public MiniToolbarStyles()
+        {
+            InitializeComponent();
+        }
+
+        private void InitializeComponent()
+        {
+            AvaloniaXamlLoader.Load(this);
+        }
     }
 }

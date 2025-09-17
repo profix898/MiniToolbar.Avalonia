@@ -1,10 +1,7 @@
 ﻿using System;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Templates;
-using Avalonia.Layout;
-using Avalonia.Media;
 using Avalonia.Metadata;
 
 namespace MiniToolbar.Avalonia;
@@ -48,7 +45,7 @@ public class ToolbarButton : Button, IToolbarItem
 
     #region Overrides of StyledElement
 
-    protected override Type StyleKeyOverride => typeof(Button);
+    protected override Type StyleKeyOverride => typeof(ToolbarButton);
 
     #endregion
 
@@ -58,24 +55,8 @@ public class ToolbarButton : Button, IToolbarItem
 
         if (change.Property == IconProperty || change.Property == TextProperty)
         {
-            Control iconControl = Icon switch
-            {
-                TemplatedControl control => control,
-                IImage iimage => new Image { Source = iimage, IsVisible = Icon != null },
-                null => new Image { Source = null, IsVisible = false }, // Placeholder
-                _ => throw new NotSupportedException($"Unsupported icon type ({Icon.GetType()}).")
-            };
-
-            base.Content = new StackPanel
-            {
-                Orientation = Orientation.Vertical,
-                Children =
-                {
-                    iconControl,
-                    new TextBlock { Text = Text, IsVisible = !String.IsNullOrEmpty(Text) }
-                }
-            };
-
+            // Let the ControlTemplate and any DataTemplates handle rendering of Icon/Text.
+            // Only update state (CSS-like classes) here so styles/selectors can react.
             Classes.Set("NoIcon", Icon == null);
         }
     }

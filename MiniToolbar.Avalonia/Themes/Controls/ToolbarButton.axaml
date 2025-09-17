@@ -1,0 +1,61 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:toolbar="clr-namespace:MiniToolbar.Avalonia"
+                    xmlns:controls="clr-namespace:Avalonia.Controls.Primitives;assembly=Avalonia.Controls"
+                    xmlns:media="clr-namespace:Avalonia.Media;assembly=Avalonia.Base"
+                    xmlns:imaging="clr-namespace:Avalonia.Media.Imaging;assembly=Avalonia.Base"
+                    xmlns:converters="clr-namespace:MiniToolbar.Avalonia.Converters">
+
+    <!-- Converters to drive visibility from template bindings -->
+    <converters:NullToBoolConverter x:Key="NullToBool" />
+    <converters:StringNotNullOrEmptyConverter x:Key="StringNotNullOrEmpty" />
+
+    <!-- DataTemplates for common icon types -->
+    <DataTemplate x:Key="TemplatedControlTemplate" DataType="{x:Type controls:TemplatedControl}">
+        <!-- When Icon is a Control (TemplatedControl) display it directly -->
+        <ContentPresenter Content="{Binding}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="IImageDataTemplate" DataType="{x:Type media:IImage}">
+        <!-- When Icon is an IImage render it as an Image -->
+        <Image Source="{Binding}" Stretch="Uniform" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="BitmapDataTemplate" DataType="{x:Type imaging:Bitmap}">
+        <!-- Common concrete bitmap type -->
+        <Image Source="{Binding}" Stretch="Uniform" />
+    </DataTemplate>
+
+    <!-- Control template for ToolbarButton to provide a flexible and themed appearance -->
+    <ControlTheme x:Key="{x:Type toolbar:ToolbarButton}" TargetType="toolbar:ToolbarButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border x:Name="PART_Border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="6"
+                        Padding="6"
+                        Focusable="False">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <!-- Icon presenter:
+                             - IsVisible bound to Icon (null => collapsed) via NullToBoolConverter
+                             - ContentControl will display Controls directly or apply DataTemplates for IImage/Bitmap -->
+                        <ContentControl x:Name="PART_Icon"
+                                        Content="{TemplateBinding Icon}"
+                                        IsVisible="{TemplateBinding Icon, Converter={StaticResource NullToBool}}"
+                                        HorizontalAlignment="Center" />
+                        <!-- Text: only visible when non-empty -->
+                        <TextBlock Text="{TemplateBinding Text}"
+                                   IsVisible="{TemplateBinding Text, Converter={StaticResource StringNotNullOrEmpty}}"
+                                   HorizontalAlignment="Center" />
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    
+</ResourceDictionary>

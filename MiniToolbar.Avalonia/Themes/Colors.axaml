@@ -7,6 +7,8 @@
             <!-- Toolbar -->
             <SolidColorBrush x:Key="ToolbarBorderColor" Color="#61656A" />
             <SolidColorBrush x:Key="ToolbarBackgroundColor" Color="#EFEFEF" />
+            <SolidColorBrush x:Key="ToolbarBackgroundHover" Color="#E0E0E0" />
+            <SolidColorBrush x:Key="ToolbarBackgroundPressed" Color="#D0D0D0" />
             <SolidColorBrush x:Key="ToolbarButtonColor" Color="#000000" />
             <SolidColorBrush x:Key="ToolbarSeparatorColor" Color="#A1A5AA" />
             <SolidColorBrush x:Key="ToolbarTextColor" Color="#424242" />
@@ -19,6 +21,8 @@
             <!-- Toolbar -->
             <SolidColorBrush x:Key="ToolbarBorderColor" Color="#000000" />
             <SolidColorBrush x:Key="ToolbarBackgroundColor" Color="#222222" />
+            <SolidColorBrush x:Key="ToolbarBackgroundHover" Color="#33373A" />
+            <SolidColorBrush x:Key="ToolbarBackgroundPressed" Color="#2A2D2F" />
             <SolidColorBrush x:Key="ToolbarButtonColor" Color="#555555" />
             <SolidColorBrush x:Key="ToolbarSeparatorColor" Color="#555555" />
             <SolidColorBrush x:Key="ToolbarTextColor" Color="#EFEFEF" />
