@@ -56,7 +56,7 @@
     </Style>
 
     <!-- ToolbarButton -->
-    <Style Selector="Button.ToolbarButton">
+    <Style Selector="toolbar|ToolbarButton">
         <Setter Property="Height" Value="{StaticResource ToolbarButtonNormalHeight}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource ToolbarTextColor}" />
@@ -66,40 +66,40 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
-    <Style Selector="toolbar|Toolbar.CompactStyle Button.ToolbarButton">
+    <Style Selector="toolbar|Toolbar.CompactStyle toolbar|ToolbarButton">
         <Setter Property="Height" Value="{StaticResource ToolbarButtonCompactHeight}" />
     </Style>
-    <Style Selector="Button.ToolbarButton > StackPanel">
+    <Style Selector="toolbar|ToolbarButton > StackPanel">
         <Setter Property="MinWidth" Value="{StaticResource ToolbarButtonWidth}" />
         <Setter Property="Orientation" Value="Vertical" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Spacing" Value="2" />
     </Style>
-    <Style Selector="Button.ToolbarButton > StackPanel > Image">
+    <Style Selector="toolbar|ToolbarButton > StackPanel > Image">
         <Setter Property="Width" Value="{StaticResource ToolbarButtonImageSize}" />
         <Setter Property="Height" Value="{StaticResource ToolbarButtonImageSize}" />
         <Setter Property="Opacity" Value="0.8" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
-    <Style Selector="Button.ToolbarButton > StackPanel > TextBlock">
+    <Style Selector="toolbar|ToolbarButton > StackPanel > TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource ToolbarTextColor}" />
         <Setter Property="Padding" Value="4,0" />
         <Setter Property="HorizontalAlignment" Value="Center" />
     </Style>
-    <Style Selector="toolbar|Toolbar.CompactStyle Button.ToolbarButton > StackPanel > TextBlock">
+    <Style Selector="toolbar|Toolbar.CompactStyle toolbar|ToolbarButton > StackPanel > TextBlock">
         <Setter Property="IsVisible" Value="False" />
     </Style>
-    <Style Selector="toolbar|Toolbar.CompactStyle Button.ToolbarButton.NoIcon > StackPanel > TextBlock">
+    <Style Selector="toolbar|Toolbar.CompactStyle toolbar|ToolbarButton.NoIcon > StackPanel > TextBlock">
         <Setter Property="IsVisible" Value="True" />
     </Style>
-    <Style Selector="toolbar|Toolbar.CompactStyle Button.ToolbarButton.NoIcon > StackPanel > Image">
+    <Style Selector="toolbar|Toolbar.CompactStyle toolbar|ToolbarButton.NoIcon > StackPanel > Image">
         <Setter Property="IsVisible" Value="False" />
     </Style>
 
     <!-- Hover / Pressed visual states for toolbar buttons -->
-    <Style Selector="toolbar|ToolbarButton:hover > Border#PART_Border">
+    <Style Selector="toolbar|ToolbarButton:pointerover > Border#PART_Border">
         <Setter Property="Background" Value="{DynamicResource ToolbarBackgroundHover}" />
     </Style>
     <Style Selector="toolbar|ToolbarButton:pressed > Border#PART_Border">
